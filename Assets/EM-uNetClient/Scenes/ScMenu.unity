@@ -3621,6 +3621,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isFlowAutoStart: 1
   m_dialog: {fileID: 1131184699}
+  m_bandwidthSummaryTf: {fileID: 717352521}
+  m_delaySummaryTf: {fileID: 1333441971}
 --- !u!4 &1368722445
 Transform:
   m_ObjectHideFlags: 0

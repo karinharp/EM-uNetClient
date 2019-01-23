@@ -31,6 +31,17 @@ public class SystemManager : MonoBehaviour
             return m_staticConfig;
         }
     }
+
+    UDPingClient.Profile m_delayProfile = null;
+    public UDPingClient.Profile delayProfile {
+        get {
+            if(m_delayProfile == null){ m_delayProfile = new UDPingClient.Profile(); }
+            return m_delayProfile;
+        }
+	set {
+	    m_delayProfile = value;
+	}
+    }
     
     void Awake(){
 

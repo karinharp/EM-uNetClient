@@ -30,12 +30,10 @@ public class ScDelayCheckFlow : FlowNodeManager
     [SerializeField]
     TextMeshProUGUI m_timeTf;
     [SerializeField]
-    TextMeshProUGUI m_ppsTf;
-    [SerializeField]
-    TextMeshProUGUI m_pktTf;
+    TextMeshProUGUI m_settingTf;
 
     /*==========================================================================================*/
-
+    
     public class Bar {
 	public RectTransform rt;
 	public Image         img;	
@@ -71,6 +69,8 @@ public class ScDelayCheckFlow : FlowNodeManager
     }
 
     static readonly int MONITOR_WIDTH = 720;
+    static readonly int SEEK_BUF_TIMEOUT_FRAME = 20;
+
     static Vector2 s_pos  = new Vector2(0,0);
     static Vector2 s_size = new Vector2(1,1);
     
@@ -96,6 +96,12 @@ public class ScDelayCheckFlow : FlowNodeManager
 	    return;
 	}
 	m_payload = new byte[UDPingClient.RECV_BUFFER_SIZE];
+
+	m_client.profile.pps = sceneManager.system.delayProfile.pps;
+	m_client.profile.pktPayloadSize = sceneManager.system.delayProfile.pktPayloadSize;
+	m_client.profile.duration = sceneManager.system.delayProfile.duration;
+	
+	m_settingTf.text = "Test: " + m_client.profile.duration.ToString() + " sec - " + m_client.profile.pktSize.ToString() + "B";
 	
 	m_barList      = new List<Bar>();
 	m_barNr        = MONITOR_WIDTH / 60 * m_client.profile.pps;
@@ -140,7 +146,7 @@ public class ScDelayCheckFlow : FlowNodeManager
 	
 	{
 	    int idx = 0;
-	    int nr  = UDPingClient.TIMEOUT_MSEC / 1000 * m_client.profile.pps;
+	    int nr  = (UDPingClient.TIMEOUT_MSEC / 1000 * m_client.profile.pps) + SEEK_BUF_TIMEOUT_FRAME;
 	    int baseSeq = m_client.profile.currentSeq;
 	    
 	    for(idx = 0; idx < nr; ++idx){
@@ -148,7 +154,7 @@ public class ScDelayCheckFlow : FlowNodeManager
 		if(seq < 0){ break; }
 		var bar = m_barList[seq % m_barNr];
 
-		if((idx + 1) == nr){
+		if(idx >= (nr - SEEK_BUF_TIMEOUT_FRAME)){
 		    var node = m_client.profile.TimeoutHandler(seq);
 		    if(node != null){
 			bar.Apply(node.rtt);			
@@ -161,17 +167,25 @@ public class ScDelayCheckFlow : FlowNodeManager
 	if(lastRtt > 0){
 	    m_delayTf.text = lastRtt.ToString() + " msec";
 	}
+
+	var loss = m_client.profile.loss * 100;
+	if(loss > 0f){
+	    m_lossTf.text = "Loss " + loss.ToString() + " % |";
+	}
+	
 	var time = (m_client.profile.duration * 1000) - m_client.profile.now;
 	if(time < 0){ time = 0; }
 	m_timeTf.text = "| 残: " + time.ToString();
     }
 
-    void OnDisable(){
+    protected override void OnDisable(){
 	if(m_client != null){
+	    m_client.Abort();
 	    m_client.Dispose();
 	    m_client = null;
 	}
 	m_payload = null;
+	base.OnDisable();
     }
     
     /*==========================================================================================*/
@@ -185,6 +199,15 @@ public class ScDelayCheckFlow : FlowNodeManager
     public void DelayTest(FlowEvent.Data data){
 	if(m_client != null){
 	    data.task = m_client.UDPing();
+	}
+    }
+
+    [Preserve]
+    public void CopyProfile(FlowEvent.Data data){
+	if(m_client != null){
+	    if(m_client.profile.status == UDPingClient.Status.E_OK){
+		sceneManager.system.delayProfile = m_client.profile;
+	    }
 	}
     }
     

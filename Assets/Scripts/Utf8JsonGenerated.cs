@@ -43,24 +43,21 @@ namespace Utf8Json.Resolvers
 
         static GeneratedResolverGetFormatterHelper()
         {
-            lookup = new global::System.Collections.Generic.Dictionary<Type, int>(16)
+            lookup = new global::System.Collections.Generic.Dictionary<Type, int>(13)
             {
                 {typeof(global::System.Collections.Generic.List<global::kde.tech.InfoData.ApiInfo.Api>), 0 },
-                {typeof(global::System.Collections.Generic.List<int>), 1 },
-                {typeof(global::kde.tech.StoreData.Request), 2 },
-                {typeof(global::kde.tech.StoreData.Response), 3 },
-                {typeof(global::kde.tech.InfoData.Request), 4 },
-                {typeof(global::kde.tech.InfoData.ApiInfo.Api), 5 },
-                {typeof(global::kde.tech.InfoData.ApiInfo), 6 },
-                {typeof(global::kde.tech.InfoData.Response), 7 },
-                {typeof(global::kde.tech.UserData.Profile), 8 },
-                {typeof(global::kde.tech.AuthData.Request), 9 },
-                {typeof(global::kde.tech.AuthData.Response), 10 },
-                {typeof(global::kde.tech.UDPingClient.Profile), 11 },
-                {typeof(global::kde.tech.UDPingClient.PacketPayload), 12 },
-                {typeof(global::kde.tech.UDPingClient.TestSession), 13 },
-                {typeof(global::kde.tech.UDPingClient.TestResult), 14 },
-                {typeof(global::kde.tech.UDPingClient.Profile.Node), 15 },
+                {typeof(global::kde.tech.StoreData.Request), 1 },
+                {typeof(global::kde.tech.StoreData.Response), 2 },
+                {typeof(global::kde.tech.InfoData.Request), 3 },
+                {typeof(global::kde.tech.InfoData.ApiInfo.Api), 4 },
+                {typeof(global::kde.tech.InfoData.ApiInfo), 5 },
+                {typeof(global::kde.tech.InfoData.Response), 6 },
+                {typeof(global::kde.tech.UserData.Profile), 7 },
+                {typeof(global::kde.tech.AuthData.Request), 8 },
+                {typeof(global::kde.tech.AuthData.Response), 9 },
+                {typeof(global::kde.tech.UDPingClient.Profile), 10 },
+                {typeof(global::kde.tech.UDPingClient.PacketPayload), 11 },
+                {typeof(global::kde.tech.UDPingClient.Profile.Node), 12 },
             };
         }
 
@@ -72,21 +69,18 @@ namespace Utf8Json.Resolvers
             switch (key)
             {
                 case 0: return new global::Utf8Json.Formatters.ListFormatter<global::kde.tech.InfoData.ApiInfo.Api>();
-                case 1: return new global::Utf8Json.Formatters.ListFormatter<int>();
-                case 2: return new Utf8Json.Formatters.kde.tech.StoreData_RequestFormatter();
-                case 3: return new Utf8Json.Formatters.kde.tech.StoreData_ResponseFormatter();
-                case 4: return new Utf8Json.Formatters.kde.tech.InfoData_RequestFormatter();
-                case 5: return new Utf8Json.Formatters.kde.tech.InfoData_ApiInfo_ApiFormatter();
-                case 6: return new Utf8Json.Formatters.kde.tech.InfoData_ApiInfoFormatter();
-                case 7: return new Utf8Json.Formatters.kde.tech.InfoData_ResponseFormatter();
-                case 8: return new Utf8Json.Formatters.kde.tech.UserData_ProfileFormatter();
-                case 9: return new Utf8Json.Formatters.kde.tech.AuthData_RequestFormatter();
-                case 10: return new Utf8Json.Formatters.kde.tech.AuthData_ResponseFormatter();
-                case 11: return new Utf8Json.Formatters.kde.tech.UDPingClient_ProfileFormatter();
-                case 12: return new Utf8Json.Formatters.kde.tech.UDPingClient_PacketPayloadFormatter();
-                case 13: return new Utf8Json.Formatters.kde.tech.UDPingClient_TestSessionFormatter();
-                case 14: return new Utf8Json.Formatters.kde.tech.UDPingClient_TestResultFormatter();
-                case 15: return new Utf8Json.Formatters.kde.tech.UDPingClient_Profile_NodeFormatter();
+                case 1: return new Utf8Json.Formatters.kde.tech.StoreData_RequestFormatter();
+                case 2: return new Utf8Json.Formatters.kde.tech.StoreData_ResponseFormatter();
+                case 3: return new Utf8Json.Formatters.kde.tech.InfoData_RequestFormatter();
+                case 4: return new Utf8Json.Formatters.kde.tech.InfoData_ApiInfo_ApiFormatter();
+                case 5: return new Utf8Json.Formatters.kde.tech.InfoData_ApiInfoFormatter();
+                case 6: return new Utf8Json.Formatters.kde.tech.InfoData_ResponseFormatter();
+                case 7: return new Utf8Json.Formatters.kde.tech.UserData_ProfileFormatter();
+                case 8: return new Utf8Json.Formatters.kde.tech.AuthData_RequestFormatter();
+                case 9: return new Utf8Json.Formatters.kde.tech.AuthData_ResponseFormatter();
+                case 10: return new Utf8Json.Formatters.kde.tech.UDPingClient_ProfileFormatter();
+                case 11: return new Utf8Json.Formatters.kde.tech.UDPingClient_PacketPayloadFormatter();
+                case 12: return new Utf8Json.Formatters.kde.tech.UDPingClient_Profile_NodeFormatter();
                 default: return null;
             }
         }
@@ -1116,24 +1110,28 @@ namespace Utf8Json.Formatters.kde.tech
             {
                 { JsonWriter.GetEncodedPropertyNameWithoutQuotation("status"), 0},
                 { JsonWriter.GetEncodedPropertyNameWithoutQuotation("pps"), 1},
-                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("pktSize"), 2},
+                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("pktPayloadSize"), 2},
                 { JsonWriter.GetEncodedPropertyNameWithoutQuotation("duration"), 3},
                 { JsonWriter.GetEncodedPropertyNameWithoutQuotation("now"), 4},
                 { JsonWriter.GetEncodedPropertyNameWithoutQuotation("currentSeq"), 5},
-                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("median"), 6},
-                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("avg"), 7},
+                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("pktSize"), 6},
+                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("median"), 7},
+                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("avg"), 8},
+                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("loss"), 9},
             };
 
             this.____stringByteKeys = new byte[][]
             {
                 JsonWriter.GetEncodedPropertyNameWithBeginObject("status"),
                 JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("pps"),
-                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("pktSize"),
+                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("pktPayloadSize"),
                 JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("duration"),
                 JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("now"),
                 JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("currentSeq"),
+                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("pktSize"),
                 JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("median"),
                 JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("avg"),
+                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("loss"),
                 
             };
         }
@@ -1152,7 +1150,7 @@ namespace Utf8Json.Formatters.kde.tech
             writer.WriteRaw(this.____stringByteKeys[1]);
             writer.WriteInt32(value.pps);
             writer.WriteRaw(this.____stringByteKeys[2]);
-            writer.WriteInt32(value.pktSize);
+            writer.WriteInt32(value.pktPayloadSize);
             writer.WriteRaw(this.____stringByteKeys[3]);
             writer.WriteInt32(value.duration);
             writer.WriteRaw(this.____stringByteKeys[4]);
@@ -1160,9 +1158,13 @@ namespace Utf8Json.Formatters.kde.tech
             writer.WriteRaw(this.____stringByteKeys[5]);
             writer.WriteInt32(value.currentSeq);
             writer.WriteRaw(this.____stringByteKeys[6]);
-            writer.WriteInt32(value.median);
+            writer.WriteInt32(value.pktSize);
             writer.WriteRaw(this.____stringByteKeys[7]);
+            writer.WriteInt32(value.median);
+            writer.WriteRaw(this.____stringByteKeys[8]);
             writer.WriteInt32(value.avg);
+            writer.WriteRaw(this.____stringByteKeys[9]);
+            writer.WriteSingle(value.loss);
             
             writer.WriteEndObject();
         }
@@ -1179,18 +1181,22 @@ namespace Utf8Json.Formatters.kde.tech
             var __status__b__ = false;
             var __pps__ = default(int);
             var __pps__b__ = false;
-            var __pktSize__ = default(int);
-            var __pktSize__b__ = false;
+            var __pktPayloadSize__ = default(int);
+            var __pktPayloadSize__b__ = false;
             var __duration__ = default(int);
             var __duration__b__ = false;
             var __now__ = default(long);
             var __now__b__ = false;
             var __currentSeq__ = default(int);
             var __currentSeq__b__ = false;
+            var __pktSize__ = default(int);
+            var __pktSize__b__ = false;
             var __median__ = default(int);
             var __median__b__ = false;
             var __avg__ = default(int);
             var __avg__b__ = false;
+            var __loss__ = default(float);
+            var __loss__b__ = false;
 
             var ____count = 0;
             reader.ReadIsBeginObjectWithVerify();
@@ -1215,8 +1221,8 @@ namespace Utf8Json.Formatters.kde.tech
                         __pps__b__ = true;
                         break;
                     case 2:
-                        __pktSize__ = reader.ReadInt32();
-                        __pktSize__b__ = true;
+                        __pktPayloadSize__ = reader.ReadInt32();
+                        __pktPayloadSize__b__ = true;
                         break;
                     case 3:
                         __duration__ = reader.ReadInt32();
@@ -1231,12 +1237,20 @@ namespace Utf8Json.Formatters.kde.tech
                         __currentSeq__b__ = true;
                         break;
                     case 6:
+                        __pktSize__ = reader.ReadInt32();
+                        __pktSize__b__ = true;
+                        break;
+                    case 7:
                         __median__ = reader.ReadInt32();
                         __median__b__ = true;
                         break;
-                    case 7:
+                    case 8:
                         __avg__ = reader.ReadInt32();
                         __avg__b__ = true;
+                        break;
+                    case 9:
+                        __loss__ = reader.ReadSingle();
+                        __loss__b__ = true;
                         break;
                     default:
                         reader.ReadNextBlock();
@@ -1250,7 +1264,7 @@ namespace Utf8Json.Formatters.kde.tech
             var ____result = new global::kde.tech.UDPingClient.Profile();
             if(__status__b__) ____result.status = __status__;
             if(__pps__b__) ____result.pps = __pps__;
-            if(__pktSize__b__) ____result.pktSize = __pktSize__;
+            if(__pktPayloadSize__b__) ____result.pktPayloadSize = __pktPayloadSize__;
             if(__duration__b__) ____result.duration = __duration__;
             if(__currentSeq__b__) ____result.currentSeq = __currentSeq__;
 
@@ -1333,221 +1347,6 @@ namespace Utf8Json.Formatters.kde.tech
 
             var ____result = new global::kde.tech.UDPingClient.PacketPayload();
             if(__msg__b__) ____result.msg = __msg__;
-
-            return ____result;
-        }
-    }
-
-
-    public sealed class UDPingClient_TestSessionFormatter : global::Utf8Json.IJsonFormatter<global::kde.tech.UDPingClient.TestSession>
-    {
-        readonly global::Utf8Json.Internal.AutomataDictionary ____keyMapping;
-        readonly byte[][] ____stringByteKeys;
-
-        public UDPingClient_TestSessionFormatter()
-        {
-            this.____keyMapping = new global::Utf8Json.Internal.AutomataDictionary()
-            {
-                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("sendTime"), 0},
-                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("recvTime"), 1},
-            };
-
-            this.____stringByteKeys = new byte[][]
-            {
-                JsonWriter.GetEncodedPropertyNameWithBeginObject("sendTime"),
-                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("recvTime"),
-                
-            };
-        }
-
-        public void Serialize(ref JsonWriter writer, global::kde.tech.UDPingClient.TestSession value, global::Utf8Json.IJsonFormatterResolver formatterResolver)
-        {
-            if (value == null)
-            {
-                writer.WriteNull();
-                return;
-            }
-            
-
-            writer.WriteRaw(this.____stringByteKeys[0]);
-            writer.WriteInt32(value.sendTime);
-            writer.WriteRaw(this.____stringByteKeys[1]);
-            writer.WriteInt32(value.recvTime);
-            
-            writer.WriteEndObject();
-        }
-
-        public global::kde.tech.UDPingClient.TestSession Deserialize(ref JsonReader reader, global::Utf8Json.IJsonFormatterResolver formatterResolver)
-        {
-            if (reader.ReadIsNull())
-            {
-                return null;
-            }
-            
-
-            var __sendTime__ = default(int);
-            var __sendTime__b__ = false;
-            var __recvTime__ = default(int);
-            var __recvTime__b__ = false;
-
-            var ____count = 0;
-            reader.ReadIsBeginObjectWithVerify();
-            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref ____count))
-            {
-                var stringKey = reader.ReadPropertyNameSegmentRaw();
-                int key;
-                if (!____keyMapping.TryGetValueSafe(stringKey, out key))
-                {
-                    reader.ReadNextBlock();
-                    goto NEXT_LOOP;
-                }
-
-                switch (key)
-                {
-                    case 0:
-                        __sendTime__ = reader.ReadInt32();
-                        __sendTime__b__ = true;
-                        break;
-                    case 1:
-                        __recvTime__ = reader.ReadInt32();
-                        __recvTime__b__ = true;
-                        break;
-                    default:
-                        reader.ReadNextBlock();
-                        break;
-                }
-
-                NEXT_LOOP:
-                continue;
-            }
-
-            var ____result = new global::kde.tech.UDPingClient.TestSession();
-            if(__sendTime__b__) ____result.sendTime = __sendTime__;
-            if(__recvTime__b__) ____result.recvTime = __recvTime__;
-
-            return ____result;
-        }
-    }
-
-
-    public sealed class UDPingClient_TestResultFormatter : global::Utf8Json.IJsonFormatter<global::kde.tech.UDPingClient.TestResult>
-    {
-        readonly global::Utf8Json.Internal.AutomataDictionary ____keyMapping;
-        readonly byte[][] ____stringByteKeys;
-
-        public UDPingClient_TestResultFormatter()
-        {
-            this.____keyMapping = new global::Utf8Json.Internal.AutomataDictionary()
-            {
-                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("timestamp"), 0},
-                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("pps"), 1},
-                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("pktSize"), 2},
-                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("duration"), 3},
-                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("rtt"), 4},
-            };
-
-            this.____stringByteKeys = new byte[][]
-            {
-                JsonWriter.GetEncodedPropertyNameWithBeginObject("timestamp"),
-                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("pps"),
-                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("pktSize"),
-                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("duration"),
-                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("rtt"),
-                
-            };
-        }
-
-        public void Serialize(ref JsonWriter writer, global::kde.tech.UDPingClient.TestResult value, global::Utf8Json.IJsonFormatterResolver formatterResolver)
-        {
-            if (value == null)
-            {
-                writer.WriteNull();
-                return;
-            }
-            
-
-            writer.WriteRaw(this.____stringByteKeys[0]);
-            writer.WriteInt32(value.timestamp);
-            writer.WriteRaw(this.____stringByteKeys[1]);
-            writer.WriteInt32(value.pps);
-            writer.WriteRaw(this.____stringByteKeys[2]);
-            writer.WriteInt32(value.pktSize);
-            writer.WriteRaw(this.____stringByteKeys[3]);
-            writer.WriteInt32(value.duration);
-            writer.WriteRaw(this.____stringByteKeys[4]);
-            formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.List<int>>().Serialize(ref writer, value.rtt, formatterResolver);
-            
-            writer.WriteEndObject();
-        }
-
-        public global::kde.tech.UDPingClient.TestResult Deserialize(ref JsonReader reader, global::Utf8Json.IJsonFormatterResolver formatterResolver)
-        {
-            if (reader.ReadIsNull())
-            {
-                return null;
-            }
-            
-
-            var __timestamp__ = default(int);
-            var __timestamp__b__ = false;
-            var __pps__ = default(int);
-            var __pps__b__ = false;
-            var __pktSize__ = default(int);
-            var __pktSize__b__ = false;
-            var __duration__ = default(int);
-            var __duration__b__ = false;
-            var __rtt__ = default(global::System.Collections.Generic.List<int>);
-            var __rtt__b__ = false;
-
-            var ____count = 0;
-            reader.ReadIsBeginObjectWithVerify();
-            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref ____count))
-            {
-                var stringKey = reader.ReadPropertyNameSegmentRaw();
-                int key;
-                if (!____keyMapping.TryGetValueSafe(stringKey, out key))
-                {
-                    reader.ReadNextBlock();
-                    goto NEXT_LOOP;
-                }
-
-                switch (key)
-                {
-                    case 0:
-                        __timestamp__ = reader.ReadInt32();
-                        __timestamp__b__ = true;
-                        break;
-                    case 1:
-                        __pps__ = reader.ReadInt32();
-                        __pps__b__ = true;
-                        break;
-                    case 2:
-                        __pktSize__ = reader.ReadInt32();
-                        __pktSize__b__ = true;
-                        break;
-                    case 3:
-                        __duration__ = reader.ReadInt32();
-                        __duration__b__ = true;
-                        break;
-                    case 4:
-                        __rtt__ = formatterResolver.GetFormatterWithVerify<global::System.Collections.Generic.List<int>>().Deserialize(ref reader, formatterResolver);
-                        __rtt__b__ = true;
-                        break;
-                    default:
-                        reader.ReadNextBlock();
-                        break;
-                }
-
-                NEXT_LOOP:
-                continue;
-            }
-
-            var ____result = new global::kde.tech.UDPingClient.TestResult();
-            if(__timestamp__b__) ____result.timestamp = __timestamp__;
-            if(__pps__b__) ____result.pps = __pps__;
-            if(__pktSize__b__) ____result.pktSize = __pktSize__;
-            if(__duration__b__) ____result.duration = __duration__;
-            if(__rtt__b__) ____result.rtt = __rtt__;
 
             return ____result;
         }
