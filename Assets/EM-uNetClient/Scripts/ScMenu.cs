@@ -29,12 +29,21 @@ public class ScMenu: ScBase<ScMenuFlow>
     }
     
     protected async void Start(){
+	
 	if(system.delayProfile.status == UDPingClient.Status.E_OK){
 	    m_delaySummaryTf.text = "RTT AVG " + system.delayProfile.avg + " msec";
 	}
 	else {
 	    m_delaySummaryTf.text = "RTT AVG - msec";	    
 	}
+	
+	if(system.bandwidthDwProfile.status == BandwidthClient.Status.E_OK){
+	    m_bandwidthSummaryTf.text = "DW AVG " + system.bandwidthDwProfile.avg + " kbps";
+	}
+	else {
+	    m_bandwidthSummaryTf.text = "DW AVG - kbps";
+	}
+	
 	await StartFlow();
     }
     

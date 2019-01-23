@@ -20,7 +20,7 @@ public class ScTestSetting: ScBase<FlowNodeManager>
     public void SetFocusedValueToCTX(FlowEvent.Data data){
 
 	Debug.Log("SetFocusedValueToCTX");
-	
+	/*
 	var bCTX = system.enpManager.bandwitdhTestCTX;
 	var dCTX = system.enpManager.delayTestCTX;
 	var sCTX = system.enpManager.saveCTX;
@@ -39,6 +39,7 @@ public class ScTestSetting: ScBase<FlowNodeManager>
 		case "SaveConfigIsSaveAuto":  sCTX.isSaveAuto = field.focusedValue.b; break; 
 	    }
 	}
+	*/
     }
     
 }

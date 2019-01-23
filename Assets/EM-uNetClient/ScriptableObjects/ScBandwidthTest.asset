@@ -9,66 +9,58 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 354b225b914494b6d9f6310f2533582b, type: 3}
-  m_Name: ScTest
+  m_Name: ScBandwidthTest
   m_EditorClassIdentifier: 
   flowLabel: Default
   procList:
+  - procList: []
+    seekCond: 2
+    seekWaitTimeMsec: 1000
+    seekWaitTriggerKey: 
+    isLoop: 0
+    loopBreakTriggerKey: 
   - procList:
     - type: 2
       arg:
         type: 0
-        funcName: StartBandwidthTest
+        funcName: StartBandwidthDwTest
+        argType: 5
         num: 0
         str: 
         b: 0
-        line: []
-    seekCond: 4
+    seekCond: 0
     seekWaitTimeMsec: 0
-    seekWaitTriggerKey: BandwidthTestComplete
+    seekWaitTriggerKey: 
+    isLoop: 0
+    loopBreakTriggerKey: 
+  - procList: []
+    seekCond: 2
+    seekWaitTimeMsec: 3000
+    seekWaitTriggerKey: 
+    isLoop: 0
+    loopBreakTriggerKey: 
   - procList:
     - type: 2
       arg:
         type: 0
-        funcName: StartDelayTest
+        funcName: CopyProfile
+        argType: 5
         num: 0
         str: 
         b: 0
-        line: []
-    seekCond: 4
-    seekWaitTimeMsec: 0
-    seekWaitTriggerKey: DelayTestComplete
-  - procList:
-    - type: 2
-      arg:
-        type: 0
-        funcName: StartSaveTest
-        num: 0
-        str: 
-        b: 0
-        line: []
-    seekCond: 4
-    seekWaitTimeMsec: 0
-    seekWaitTriggerKey: SaveTestComplete
-  - procList:
-    - type: 2
-      arg:
-        type: 0
-        funcName: TermTest
-        num: 0
-        str: 
-        b: 0
-        line: []
     - type: 1
       arg:
         type: 0
         funcName: 
+        argType: 1
         num: 0
         str: ScMenu
         b: 0
-        line: []
     seekCond: 0
     seekWaitTimeMsec: 0
     seekWaitTriggerKey: 
+    isLoop: 0
+    loopBreakTriggerKey: 
   nextFlowList: []
   triggerList:
   - key: BandwidthTestComplete
