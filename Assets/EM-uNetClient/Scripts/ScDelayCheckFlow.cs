@@ -41,6 +41,10 @@ public class ScDelayCheckFlow : FlowNodeManager
 	public Image         img;	
 	public void Apply(int rtt){
 	    uint color = 0xFFFFFFFF;
+	    if(rtt < 0){
+		color = 0xFF999999;
+		s_size.y = 340f;
+	    }
 	    if(rtt < 100){
 		color = 0xFF0000FF;
 		s_size.y = 60f * ((float)rtt / 100f);
@@ -58,7 +62,7 @@ public class ScDelayCheckFlow : FlowNodeManager
 		s_size.y = 300f + 40f * (((float)rtt - 500f) / ((float)UDPingClient.TIMEOUT_MSEC - 500f));
 	    }
 	    else {
-		color = 0xFF333333;
+		color = 0xFFFFFFFF;
 		s_size.y = 340f;
 	    }
 	    img.SetColor(color);
@@ -172,6 +176,8 @@ public class ScDelayCheckFlow : FlowNodeManager
     
     /*==========================================================================================*/
 
+    public void Abort(){ m_client.Abort(); }
+    
     [Preserve]
     public void UnLockUI(FlowEvent.Data data){ uiLock.UnLock(); }
     

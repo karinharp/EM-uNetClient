@@ -340,12 +340,13 @@ public class UDPingClient : IDisposable
 	var payload        = JsonSerializer.Serialize(body);
 	    
 	for(;profile.currentSeq < nr; ++profile.currentSeq){
+	    if(m_isAbort){ break; }
 	    SendTestPacket(MSG_TYPE_ECHO, profile.currentSeq, payload, payload.Length);
 	    profile.SendHandler(profile.currentSeq);
 	    var deltaMicroSec = 1000000 * profile.currentSeq / profile.pps;
 	    var waitByMSec    = (int)(((startMicroSec + deltaMicroSec) / 1000) - profile.now);
 	    UnityEngine.Debug.Log(profile.currentSeq.ToString() + " : " + waitByMSec.ToString());
-	    if(waitByMSec > 0){ await Task.Delay(waitByMSec); }
+	    if(waitByMSec > 0){ await Task.Delay(waitByMSec); }	    
 	}
 	
 	// 最終PacketのTimeoutを待つためにWait
