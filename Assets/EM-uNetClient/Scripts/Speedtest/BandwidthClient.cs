@@ -39,7 +39,7 @@ public class BandwidthClient : ScriptableObject
 	public Status status { get; set; } = Status.E_CHAOS;
 	
 	public string datSize { get; set; } = "8M";
-	public int duration { get; set; } = 30;
+	public int duration { get; set; } = 20;
 	
 	public class Node {
 	    public int seq { get; set; } = -1;	    

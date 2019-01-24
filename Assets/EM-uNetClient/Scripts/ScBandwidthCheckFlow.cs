@@ -101,7 +101,7 @@ public class ScBandwidthCheckFlow: FlowNodeManager
 	m_bandwidthResultAvg = -1;
 	m_bandwidthResultMed = -1;
 
-	m_settingTf.text = "Test: Download " + sceneManager.system.bandwidthDwProfile.duration.ToString() + " sec";
+	m_settingTf.text = "Test: Time " + sceneManager.system.bandwidthDwProfile.duration.ToString() + " sec - Size " + sceneManager.system.bandwidthDwProfile.datSize + "B";
 	
 	m_barList      = new List<Bar>();
 	m_barNr        = MONITOR_WIDTH / 60 * 10;
@@ -137,7 +137,7 @@ public class ScBandwidthCheckFlow: FlowNodeManager
 	    UnityEngine.Debug.Log("AVG : " + m_bandwidthResultAvg.ToString() + " kbps");
 	    UnityEngine.Debug.Log("MED : " + m_bandwidthResultMed.ToString() + " kbps");
 	}
-
+	m_testLimit = 0;
 	await countTask;
     }
     async Task BandWidthUpTest(){

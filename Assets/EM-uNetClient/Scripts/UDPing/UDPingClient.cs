@@ -228,7 +228,7 @@ public class UDPingClient : IDisposable
 	public Status status { get; set; } = Status.E_CHAOS;
 	
 	public int pps { get; set; } = 10;
-	public int pktPayloadSize { get; set; } = 10;
+	public int pktPayloadSize { get; set; } = 52; // - HEADER_SIZE;
 	public int duration { get; set; } = 30;
 	
 	public class Node {
