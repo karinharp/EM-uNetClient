@@ -43,7 +43,7 @@ namespace Utf8Json.Resolvers
 
         static GeneratedResolverGetFormatterHelper()
         {
-            lookup = new global::System.Collections.Generic.Dictionary<Type, int>(13)
+            lookup = new global::System.Collections.Generic.Dictionary<Type, int>(14)
             {
                 {typeof(global::System.Collections.Generic.List<global::kde.tech.InfoData.ApiInfo.Api>), 0 },
                 {typeof(global::kde.tech.StoreData.Request), 1 },
@@ -58,6 +58,7 @@ namespace Utf8Json.Resolvers
                 {typeof(global::kde.tech.UDPingClient.Profile), 10 },
                 {typeof(global::kde.tech.UDPingClient.PacketPayload), 11 },
                 {typeof(global::kde.tech.UDPingClient.Profile.Node), 12 },
+                {typeof(global::kde.tech.PiData.NetworkParams), 13 },
             };
         }
 
@@ -81,6 +82,7 @@ namespace Utf8Json.Resolvers
                 case 10: return new Utf8Json.Formatters.kde.tech.UDPingClient_ProfileFormatter();
                 case 11: return new Utf8Json.Formatters.kde.tech.UDPingClient_PacketPayloadFormatter();
                 case 12: return new Utf8Json.Formatters.kde.tech.UDPingClient_Profile_NodeFormatter();
+                case 13: return new Utf8Json.Formatters.kde.tech.PiData_NetworkParamsFormatter();
                 default: return null;
             }
         }
@@ -1470,6 +1472,163 @@ namespace Utf8Json.Formatters.kde.tech
             if(__sendTime__b__) ____result.sendTime = __sendTime__;
             if(__recvTime__b__) ____result.recvTime = __recvTime__;
             if(__isTimeout__b__) ____result.isTimeout = __isTimeout__;
+
+            return ____result;
+        }
+    }
+
+
+    public sealed class PiData_NetworkParamsFormatter : global::Utf8Json.IJsonFormatter<global::kde.tech.PiData.NetworkParams>
+    {
+        readonly global::Utf8Json.Internal.AutomataDictionary ____keyMapping;
+        readonly byte[][] ____stringByteKeys;
+
+        public PiData_NetworkParamsFormatter()
+        {
+            this.____keyMapping = new global::Utf8Json.Internal.AutomataDictionary()
+            {
+                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("bandUp"), 0},
+                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("bandDw"), 1},
+                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("delayUp"), 2},
+                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("delayDw"), 3},
+                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("lossUp"), 4},
+                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("lossDw"), 5},
+                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("disconnUp"), 6},
+                { JsonWriter.GetEncodedPropertyNameWithoutQuotation("disconnDw"), 7},
+            };
+
+            this.____stringByteKeys = new byte[][]
+            {
+                JsonWriter.GetEncodedPropertyNameWithBeginObject("bandUp"),
+                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("bandDw"),
+                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("delayUp"),
+                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("delayDw"),
+                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("lossUp"),
+                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("lossDw"),
+                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("disconnUp"),
+                JsonWriter.GetEncodedPropertyNameWithPrefixValueSeparator("disconnDw"),
+                
+            };
+        }
+
+        public void Serialize(ref JsonWriter writer, global::kde.tech.PiData.NetworkParams value, global::Utf8Json.IJsonFormatterResolver formatterResolver)
+        {
+            if (value == null)
+            {
+                writer.WriteNull();
+                return;
+            }
+            
+
+            writer.WriteRaw(this.____stringByteKeys[0]);
+            writer.WriteInt32(value.bandUp);
+            writer.WriteRaw(this.____stringByteKeys[1]);
+            writer.WriteInt32(value.bandDw);
+            writer.WriteRaw(this.____stringByteKeys[2]);
+            writer.WriteInt32(value.delayUp);
+            writer.WriteRaw(this.____stringByteKeys[3]);
+            writer.WriteInt32(value.delayDw);
+            writer.WriteRaw(this.____stringByteKeys[4]);
+            writer.WriteInt32(value.lossUp);
+            writer.WriteRaw(this.____stringByteKeys[5]);
+            writer.WriteInt32(value.lossDw);
+            writer.WriteRaw(this.____stringByteKeys[6]);
+            writer.WriteInt32(value.disconnUp);
+            writer.WriteRaw(this.____stringByteKeys[7]);
+            writer.WriteInt32(value.disconnDw);
+            
+            writer.WriteEndObject();
+        }
+
+        public global::kde.tech.PiData.NetworkParams Deserialize(ref JsonReader reader, global::Utf8Json.IJsonFormatterResolver formatterResolver)
+        {
+            if (reader.ReadIsNull())
+            {
+                return null;
+            }
+            
+
+            var __bandUp__ = default(int);
+            var __bandUp__b__ = false;
+            var __bandDw__ = default(int);
+            var __bandDw__b__ = false;
+            var __delayUp__ = default(int);
+            var __delayUp__b__ = false;
+            var __delayDw__ = default(int);
+            var __delayDw__b__ = false;
+            var __lossUp__ = default(int);
+            var __lossUp__b__ = false;
+            var __lossDw__ = default(int);
+            var __lossDw__b__ = false;
+            var __disconnUp__ = default(int);
+            var __disconnUp__b__ = false;
+            var __disconnDw__ = default(int);
+            var __disconnDw__b__ = false;
+
+            var ____count = 0;
+            reader.ReadIsBeginObjectWithVerify();
+            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref ____count))
+            {
+                var stringKey = reader.ReadPropertyNameSegmentRaw();
+                int key;
+                if (!____keyMapping.TryGetValueSafe(stringKey, out key))
+                {
+                    reader.ReadNextBlock();
+                    goto NEXT_LOOP;
+                }
+
+                switch (key)
+                {
+                    case 0:
+                        __bandUp__ = reader.ReadInt32();
+                        __bandUp__b__ = true;
+                        break;
+                    case 1:
+                        __bandDw__ = reader.ReadInt32();
+                        __bandDw__b__ = true;
+                        break;
+                    case 2:
+                        __delayUp__ = reader.ReadInt32();
+                        __delayUp__b__ = true;
+                        break;
+                    case 3:
+                        __delayDw__ = reader.ReadInt32();
+                        __delayDw__b__ = true;
+                        break;
+                    case 4:
+                        __lossUp__ = reader.ReadInt32();
+                        __lossUp__b__ = true;
+                        break;
+                    case 5:
+                        __lossDw__ = reader.ReadInt32();
+                        __lossDw__b__ = true;
+                        break;
+                    case 6:
+                        __disconnUp__ = reader.ReadInt32();
+                        __disconnUp__b__ = true;
+                        break;
+                    case 7:
+                        __disconnDw__ = reader.ReadInt32();
+                        __disconnDw__b__ = true;
+                        break;
+                    default:
+                        reader.ReadNextBlock();
+                        break;
+                }
+
+                NEXT_LOOP:
+                continue;
+            }
+
+            var ____result = new global::kde.tech.PiData.NetworkParams();
+            if(__bandUp__b__) ____result.bandUp = __bandUp__;
+            if(__bandDw__b__) ____result.bandDw = __bandDw__;
+            if(__delayUp__b__) ____result.delayUp = __delayUp__;
+            if(__delayDw__b__) ____result.delayDw = __delayDw__;
+            if(__lossUp__b__) ____result.lossUp = __lossUp__;
+            if(__lossDw__b__) ____result.lossDw = __lossDw__;
+            if(__disconnUp__b__) ____result.disconnUp = __disconnUp__;
+            if(__disconnDw__b__) ____result.disconnDw = __disconnDw__;
 
             return ____result;
         }

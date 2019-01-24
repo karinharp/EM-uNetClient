@@ -15,10 +15,12 @@ CODE_GENERATOR_TARGET  = ${PROJECT_PATH}/Assets/EM-uNetClient/EMNS-Api/TechStore
 CODE_GENERATOR_TARGET += ,${PROJECT_PATH}/Assets/EM-uNetClient/EMNS-Api/TechInfo
 CODE_GENERATOR_TARGET += ,${PROJECT_PATH}/Assets/EM-uNetClient/EMNS-Api/TechAuth
 CODE_GENERATOR_TARGET += ,${PROJECT_PATH}/Assets/EM-uNetClient/Scripts/UDPing
+CODE_GENERATOR_TARGET += ,${PROJECT_PATH}/Assets/EM-uNetClient/Scripts/Pi
 CODE_GENERATOR_DEP     = ${PROJECT_PATH}/Assets/EM-uNetClient/EMNS-Api/TechStore/*.cs 
 CODE_GENERATOR_DEP    += ${PROJECT_PATH}/Assets/EM-uNetClient/EMNS-Api/TechInfo/*.cs 
 CODE_GENERATOR_DEP    += ${PROJECT_PATH}/Assets/EM-uNetClient/EMNS-Api/TechAuth/*.cs 
 CODE_GENERATOR_DEP    += ${PROJECT_PATH}/Assets/EM-uNetClient/Scripts/UDPing/*.cs
+CODE_GENERATOR_DEP    += ${PROJECT_PATH}/Assets/EM-uNetClient/Scripts/Pi/*.cs
 
 EMPTY =
 
